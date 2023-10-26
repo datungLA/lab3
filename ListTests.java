@@ -1,6 +1,5 @@
 import static org.junit.Assert.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,4 +31,19 @@ public class ListTests {
         assertEquals(expected, ListExamples.filter(input, checker));
     }
 
+    @Test
+    public void testMergeUnique() {
+        List<String> list1 = Arrays.asList("a", "b", "c");
+        List<String> list2 = Arrays.asList("d", "e", "f");
+        List<String> expected = Arrays.asList("a", "b", "c", "d", "e", "f");
+        assertEquals(expected, ListExamples.merge(list1, list2));
+    }
+
+    @Test
+    public void testMergeEmptyLists() {
+        List<String> list1 = new ArrayList<>();
+        List<String> list2 = new ArrayList<>();
+        List<String> expected = new ArrayList<>();
+        assertEquals(expected, ListExamples.merge(list1, list2));
+    }
 }
